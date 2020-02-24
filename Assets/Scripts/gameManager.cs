@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
-   /* public GameObject player;
-    public GameObject HUDCanvus;
-    public GameObject GameOverCanvus;*/
+    public GameObject player;
+    public GameObject hUDCanvus;
+    public GameObject gameOverCanvus;
+    public GameObject titleBackgroundImage;
+    public GameObject titleText;
+    public GameObject gameStartButton;
     
       
 
@@ -25,6 +29,17 @@ public class gameManager : MonoBehaviour
             Debug.Log("Warning: A second game manager was detected and destroyed.");
         }
     }
-    // Start is called before the first frame update
+
+    public void StartGame()
+    {
+        titleBackgroundImage.SetActive(false);
+        titleText.SetActive(false);
+        gameStartButton.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
    
 }
