@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\ButtonScripts\quit.cs" />
     <Compile Include="Assets\Scripts\ButtonScripts\restart.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\chasePlayer.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\gameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\cameraFollow.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\gadget.cs" />
