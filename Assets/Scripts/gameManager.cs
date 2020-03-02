@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static gameManager instance;
+    public static GameManager instance;
     public GameObject player;
     public GameObject hUDCanvus;
-    public GameObject gameOverCanvus;
+    public GameObject gameOverCanvas;
     public GameObject titleBackgroundImage;
     public GameObject titleText;
     public GameObject gameStartButton;

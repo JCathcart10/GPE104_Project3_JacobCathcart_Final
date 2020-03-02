@@ -30,16 +30,23 @@ public class Enemy : MonoBehaviour
 
     //how fast it heals
     public float restHealRate = 1.0f;
+
+    //field of veiw
+    public float fov = 110;
     void Start()
     {
         AIState = "Idle";
 
         tf = gameObject.GetComponent < Transform >();
+
+        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        CanHear(GameManager.instance.player);
         if (AIState == "Idle")
         {
             Idle();
@@ -69,7 +76,7 @@ public class Enemy : MonoBehaviour
     {
         //do nothing
 
-        if (IsInRange)
+        if (IsInRange() == true)
         {
             ChangeState("Seek");
         }
@@ -110,5 +117,36 @@ public class Enemy : MonoBehaviour
     public bool IsInRange()
     {
         return (Vector3.Distance(tf.position, target.position) <= attackRange);
+    }
+
+    public bool CanHear(GameObject target)
+    {
+        //get noisemaker from target
+        NoiseMaker noise = target.GetComponent<NoiseMaker>();
+        if(noise != null)
+        {
+            float adjustedVolumeDistance = noise.volumeDistance - Vector3.Distance(tf.position, target.transform.position);
+            if (adjustedVolumeDistance > 0)
+            {
+                Debug.Log("I heard a noise!");
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public bool CanSee(GameObject target)
+    {
+        Vector3 vectorToTarger = target.transform.position - tf.position;
+
+        float angleToTarger = Vector3.Angle(vectorToTarger, tf.up);
+
+        if(angleToTarger <= (fov / 2))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

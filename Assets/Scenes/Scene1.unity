@@ -554,9 +554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353f947893c16654f9fb4fdd1b894295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  hUDCanvus: {fileID: 0}
-  gameOverCanvus: {fileID: 0}
+  player: {fileID: 1611045927}
+  hUDCanvus: {fileID: 356654856}
+  gameOverCanvas: {fileID: 1112154292}
   titleBackgroundImage: {fileID: 0}
   titleText: {fileID: 0}
   gameStartButton: {fileID: 0}
@@ -586,8 +586,8 @@ GameObject:
   - component: {fileID: 748173252}
   - component: {fileID: 748173251}
   - component: {fileID: 748173250}
-  - component: {fileID: 748173254}
   - component: {fileID: 748173255}
+  - component: {fileID: 748173254}
   m_Layer: 0
   m_Name: enemy1
   m_TagString: Enemy
@@ -714,12 +714,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 748173249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab8f469f0a860c49907f0b03921ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 37bc75a22ad45504d89661d34be1129b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1611045929}
-  speed: 7
-  detectRange: 20
+  target: {fileID: 1611045929}
+  AIState: 
+  health: 0
+  maxHealth: 10
+  attackRange: 20
+  HPCutoff: 0
+  Speed: 5
+  restHealRate: 1
   fov: 110
 --- !u!58 &748173255
 CircleCollider2D:
@@ -1185,12 +1190,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147658808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab8f469f0a860c49907f0b03921ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 37bc75a22ad45504d89661d34be1129b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1611045929}
-  speed: 7
-  detectRange: 20
+  target: {fileID: 1611045929}
+  AIState: 
+  health: 0
+  maxHealth: 10
+  attackRange: 20
+  HPCutoff: 0
+  Speed: 5
+  restHealRate: 1
   fov: 110
 --- !u!1 &1572518991
 GameObject:
@@ -1498,6 +1508,7 @@ GameObject:
   - component: {fileID: 1611045932}
   - component: {fileID: 1611045931}
   - component: {fileID: 1611045933}
+  - component: {fileID: 1611045934}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1647,6 +1658,19 @@ MonoBehaviour:
   rayRange: 1
   gadgetAimAngle: 5
   player: {fileID: 1611045927}
+--- !u!114 &1611045934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611045927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfef2b3b21f1e2a48bc4fa4ff33103ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeDistance: 0
 --- !u!1 &1744963293
 GameObject:
   m_ObjectHideFlags: 0
